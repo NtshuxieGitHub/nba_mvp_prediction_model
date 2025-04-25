@@ -8,9 +8,9 @@ config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'
 sys.path.append(config_path)
 
 # Import variables from config.py
-from config import years, url
+from config import years, team_url
 
-def scrape_data() -> None:
+def scrape_div_data() -> None:
     """ 
     Scrapes NBA data from basketball-reference in HTML format 
     for a specified ranges of, and saves each year's pages as 
@@ -30,12 +30,13 @@ def scrape_data() -> None:
         for year in years:
 
             # Download the data from the webpage
-            current_url = url.format(year)
+            current_url = team_url.format(year)
             data = rqs.get(current_url)
 
             # Save the data for the current year
-            with open("../../data/mvp_data/{}.html".format(year), "w+", encoding="utf-8") as writeData:
+            with open("../../data/team_data/{}.html".format(year), "w+", encoding="utf-8") as writeData:
                 writeData.write(data.text)
+
     except rqs.exceptions.RequestException as e:
         print(f"Request failed for {year} : {e}")
     except OSError as e:
@@ -45,4 +46,4 @@ def scrape_data() -> None:
 
 # Execute
 if __name__ == "__main__":
-    scrape_data()
+    scrape_div_data()

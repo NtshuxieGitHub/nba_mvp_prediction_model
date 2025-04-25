@@ -2,7 +2,7 @@
 import pandas as pd
 from consolidate_data import consolidate_data
 
-def store_data(mvp_df: pd.DataFrame) -> None: 
+def store_div_data(mvp_df: pd.DataFrame) -> None: 
     """
     Creates and saves the mvp dataframe to a CSV file
 

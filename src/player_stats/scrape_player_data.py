@@ -16,7 +16,7 @@ from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.service import Service
 
-def scrape_player_data():
+def scrape_player_data() -> None:
     """
     Scrapes player statistics from basketball-reference.com
 
@@ -26,6 +26,9 @@ def scrape_player_data():
         - Invalid HTTP responses (e.g., 404 not Found)
         - File system issue (permission denied, invalid path)
         - Any unexpected exceptions
+
+    Returns:
+        None
     """
     try:
         # Initialize webdriver

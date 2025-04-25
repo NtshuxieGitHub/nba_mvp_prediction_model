@@ -1,10 +1,10 @@
 # Import dependencies
 import pandas as pd
-from consolidate_data import consolidate_data
+from consolidate_player_data import consolidate_player_data
 
-def store_data(mvp_df: pd.DataFrame) -> None: 
+def store_player_data(player_df: pd.DataFrame) -> None: 
     """
-    Creates and saves the mvp dataframe to a CSV file
+    Creates and saves the player dataframe to a CSV file
 
     Raises:
         - Any unexpected exceptions
@@ -17,14 +17,14 @@ def store_data(mvp_df: pd.DataFrame) -> None:
     """
     try: 
         # Save dataframe to CSV
-        mvp_df.to_csv("../../data/mvp_csv_data/mvp_data.csv", index=False)
+        player_df.to_csv("../../data/player_csv_data/player_data.csv", index=False)
     except Exception as e: 
         print(f"Failed to save dataframe to CSV : {e}")
 
 if __name__ == "__main__": 
 
     # Consolidate data
-    data = consolidate_data()
+    player_data = consolidate_player_data()
 
     # Store data
-    store_data(data)
+    store_player_data(player_data)
