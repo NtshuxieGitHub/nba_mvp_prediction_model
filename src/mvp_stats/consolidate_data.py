@@ -2,7 +2,7 @@
 from extract_data import extract_data
 import pandas as pd
 
-def consolidate_div_data() -> pd.DataFrame:
+def consolidate_data() -> pd.DataFrame:
     """
     Uses the extract_data function to 
     extract data from the HTML files and 
