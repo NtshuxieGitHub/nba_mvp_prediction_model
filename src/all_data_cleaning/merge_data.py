@@ -25,7 +25,7 @@ def merge_data() -> None:
         # Further process Share, Pts Max and Pts Won columns for playes 
         # who have never had any MVP votes. This is because these stats will 
         # be NaN for those players
-        merged_df[["Pts Max", "Pts Won", "Share"]] = merged_df[["Pts Max", "Pts Won", "Share"]].fillna(0, inplace=True)
+        merged_df[["Pts Max", "Pts Won", "Share"]] = merged_df[["Pts Max", "Pts Won", "Share"]].fillna(0)
 
         # Map abbreviated team names to the team_df
         abbreviations = {}
@@ -62,7 +62,7 @@ def merge_data() -> None:
         stats["GB"] = stats["GB"].str.replace("—", "0")
         stats["GB"] = pd.to_numeric(stats["GB"])
 
-        stats.to_csv("../../data/merged_data.csv", index=False)
+        stats.to_csv("../../data/merged_excel_data.csv", index=False)
         # return merged_df
 
     except Exception as e:
